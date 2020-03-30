@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Listers Typefaces
+   ========================================================================== */
+
+///**
+// * Description:
+// * A independent type stylesheet loaded with Web Fonts script, using the
+// * @font-face rule.
+// *
+// * Using woff2 and woff.
+// * !supports! Chrome: 5+, Safari 5.1+, Firefox: 3.6+, Opera: 11.5+, IE: 9+,
+// * Android: 4.4+, iOS: 5.1+
+// *
+// * Reading: https://css-tricks.com/snippets/css/using-font-face/ *Aug 2016
+// */
+
+@import "2_tools/str-replace",
+        "2_tools/font-face";
+
+
+//**
+//* Usage:
+//* @include font-face('font-name', 'font-path', 'font-weight', 'font-style', 'font-extensions');
+//*/
+
+// Gotham
+@include font-face('Web Gotham', '../fonts/gotham/gotham-light/gotham-light', 300, normal, woff);
+@include font-face('Web Gotham', '../fonts/gotham/gotham-book/gotham-book', 400, normal, woff);
+@include font-face('Web Gotham', '../fonts/gotham/gotham-medium/gotham-medium', 500, normal, woff);
+@include font-face('Web Gotham', '../fonts/gotham/gotham-bold/gotham-bold', 700, normal, woff);
+
+
+// Open Sans
+@include font-face('Web Open Sans', '../fonts/opensans/opensans-regular/opensans-regular', 400, normal, woff2 woff);
+@include font-face('Web Open Sans', '../fonts/opensans/opensans-semibold/opensans-semibold', 500, normal, woff2 woff);
+@include font-face('Web Open Sans', '../fonts/opensans/opensans-bold/opensans-bold', 700, normal, woff2 woff);
+@include font-face('Web Open Sans', '../fonts/opensans/opensans-italic/opensans-italic', 400, italic, woff2 woff);
+
+// Icon Font
+@include font-face('Listers Logo', '../fonts/logo/listers', normal, normal, woff2 woff, '?v7_2_20190107');
+@include font-face('listersicons', '../fonts/icons/listersicons', normal, normal, woff2 woff, '?v7_2_20191009');

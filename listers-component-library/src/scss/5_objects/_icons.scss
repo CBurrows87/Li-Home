@@ -1,0 +1,423 @@
+/*------------------------------------*\
+    Icon
+\*------------------------------------*/
+
+.icon {
+    width: 1em;
+    height: 1em;
+    font-family: listersicons;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    vertical-align: baseline;
+    top: 0.13em;
+}
+
+.icon:before {
+    content: "";
+    speak: none;
+    -webkit-font-feature-settings: "liga","dlig";
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -moz-font-feature-settings: "liga","dlig";
+    -ms-font-feature-settings: "liga","dlig";
+    -o-font-feature-settings: "liga","dlig";
+    font-feature-settings: "liga","dlig";
+    text-rendering: optimizeLegibility;
+}
+
+
+/*
+    Icon Alignment
+\*------------------------------------*/
+
+// Center an icon within a element
+// that has hieght
+
+.icon--middle{
+    position: relative;
+    text-align: center;
+    .icon{
+        top: 50%;
+        left: 50%;
+        margin-top: -0.5em;
+        margin-left: -0.5em;
+        position: absolute;
+    }
+}
+
+
+// Alignment within the icon
+.i--middle   {
+    vertical-align: middle;
+    top: auto;
+}
+.i--baseline {
+    vertical-align: baseline;
+    top: auto;
+}
+
+
+/*
+    Icon Sizes
+\*------------------------------------*/
+
+// Use classes provided by Inuit
+// !note Most Icons have been optimised
+// for x16, x32, x64. So we shouldn't really
+// be using any other sizes... lets keep icons
+// sharp by using the sizes below only!
+
+// .icon          { font-size:16px; }
+// .icon--large   { font-size:32px; }
+// .icon--huge    { font-size:64px; }
+// .icon--natural { font-size:inherit; }
+
+
+
+/*
+    Listers Icon Sets v7.2
+\*------------------------------------*/
+
+// The Unicode Private Use Area (PUA) is used to ensure screen
+// readers do not read off random characters that represent icons
+
+
+/* Logo Icon */
+.icon--logo:before              { content: "\e600"; }
+.icon--logo-type:before         { content: "\e601"; }
+.icon--logo-swoosh:before       { content: "\e602"; }
+
+/* Nav Set */
+.icon--nav-close:before         { content: "\2715"; }
+.icon--nav-contact:before       { content: "\260e"; }
+.icon--nav-favourites:before    { content: "\2605"; }
+.icon--nav-menu:before          { content: "\2261"; }
+.icon--nav-search:before        { content: "\e603"; }
+.icon--nav-sign-in:before       { content: "\e604"; }
+.icon--nav-sign-out:before      { content: "\e605"; }
+.icon--nav-phone:before         { content: "\e606"; }
+
+.icon--breadcrumb:before        { @extend .icon--chevron-small-right; }
+
+
+/*
+    General Icon Set 16x
+\*------------------------------------*/
+
+// Arrows
+.icon--chevron-up:before            { content: "\e607"; }
+.icon--chevron-down:before          { content: "\e608"; }
+.icon--chevron-left:before          { content: "\e609"; }
+.icon--chevron-right:before         { content: "\e60a"; }
+
+.icon--chevron-small-up:before      { content: "\e60b"; }
+.icon--chevron-small-down:before    { content: "\e60c"; }
+.icon--chevron-small-left:before    { content: "\e60d"; }
+.icon--chevron-small-right:before   { content: "\e60e"; }
+
+.icon--arrow-up:before              { content: "\e60f"; }
+.icon--arrow-down:before            { content: "\e610"; }
+.icon--arrow-left:before            { content: "\e611"; }
+.icon--arrow-right:before           { content: "\e612"; }
+
+.icon--swap:before                  { content: "\e613"; }
+
+
+// Stars
+.icon--star:before                  { content: "\e614"; }
+.icon--star-half:before             { content: "\e615"; }
+.icon--star-hollow:before           { content: "\e616"; }
+.icon--star-plus:before             { content: "\e617"; }
+.icon--star-minus:before            { content: "\e618"; }
+
+
+// User
+.icon--user:before              { content: "\e61e"; }
+.icon--user-add:before          { content: "\e61f"; }
+.icon--user-remove:before       { content: "\e620"; }
+.icon--user-log-out:before      { content: "\e621"; }
+.icon--user-smart::before       { content: "\e900"; }
+.icon--users::before            { content: "\e912"; }
+.icon--choice::before           { content: "\e901"; }
+.icon--select::before           { content: "\e921"; }
+
+
+// Social
+.icon--share:before             { content: "\e622"; }
+.icon--rss:before               { content: "\e623"; }
+.icon--twitter:before           { content: "\e624"; }
+.icon--facebook:before          { content: "\e625"; }
+.icon--google-plus:before       { content: "\e626"; }
+
+.icon--google:before            { content: "\e927"; }
+.icon--instagram:before         { content: "\e902"; }
+.icon--endorse:before           { content: "\e926"; }
+.icon--instagram:before         { content: "\e902"; }
+
+
+//
+.icon--tick:before              { content: "\e627"; }
+.icon--cross:before             { content: "\e628"; }
+.icon--plus:before              { content: "\e629"; }
+.icon--minus:before             { content: "\e62a"; }
+.icon--warning:before           { content: "\e62b"; }
+
+
+// Rounded
+.icon--round:before             { content: "\e62c"; }
+.icon--round-tick:before        { content: "\e62d"; }
+.icon--round-cross:before       { content: "\e62e"; }
+.icon--round-plus:before        { content: "\e62f"; }
+.icon--round-minus:before       { content: "\e630"; }
+.icon--round-warning:before     { content: "\e631"; }
+.icon--tri-warning:before       { content: "\e632"; }
+.icon--oval-rectangle:before    { content: "\e633"; }
+
+
+// Time
+.icon--calendar:before          { content: "\e634"; }
+.icon--date:before              { content: "\e635"; }
+.icon--clock:before             { content: "\e636"; }
+.icon--alarm:before             { content: "\e637"; }
+.icon--notifications::before    { content: "\e667"; }
+.icon--activity::before         { content: "\e66d"; }
+
+
+// Location
+.icon--target:before            { content: "\e638"; }
+.icon--pin:before               { content: "\e639"; }
+.icon--world:before             { content: "\e63a"; }
+.icon--directions:before        { content: "\e63b"; }
+
+
+// Contact
+.icon--phone:before             { content: "\e6b0"; }
+.icon--mobile:before            { content: "\e63d"; }
+.icon--mail:before              { content: "\e63e"; }
+
+
+
+// Actions
+.icon--offsite:before           { content: "\e63f"; }
+.icon--print:before             { content: "\e640"; }
+.icon--filter:before            { content: "\e641"; }
+.icon--file-pdf:before          { content: "\e642"; }
+.icon--menu:before              { content: "\e801"; }
+
+
+//
+.icon--home:before              { content: "\e643"; }
+.icon--company:before           { content: "\e644"; }
+.icon--company-add:before       { content: "\e645"; }
+.icon--company-remove:before    { content: "\e646"; }
+.icon--company-search:before    { content: "\e647"; }
+
+
+// Chat
+.icon--comments:before          { content: "\e648"; }
+.icon--chat:before              { content: "\e649"; }
+.icon--user-message:before      { content: "\e924"; }
+.icon--speech-lines:before      { content: "\e925"; }
+
+
+// Media
+.icon--photos:before             { content: "\e64a"; }
+.icon--camera:before             { content: "\e64b"; }
+.icon--no-image:before           { content: "\e64c"; }
+
+.icon--video:before             { content: "\e64d"; }
+.icon--video-player:before      { content: "\e64e"; }
+.icon--play:before              { content: "\e64f"; }
+.icon--sound:before             { content: "\e650"; }
+
+
+// Shopping
+.icon--cart:before              { content: "\e651"; }
+.icon--credit-card:before       { content: "\e652"; }
+.icon--sale:before              { content: "\e653"; }
+.icon--sterling:before          { content: "\e654"; }
+.icon--tick-cloud:before        { content: "\e655"; }
+.icon--cash:before              { content: "\e656"; }
+.icon--delivery:before          { content: "\e657"; }
+.icon--wallet:before            { content: "\e658"; }
+.icon--payment:before           { content: "\e91a"; }
+.icon--piggy-bank:before        { content: "\e920" }
+
+
+// Type
+.icon--ellipsis:before          { content: "\e659"; }
+.icon--text-info:before         { content: "\e65a"; }
+.icon--bullet:before            { content: "\e65b"; }
+
+
+// Office
+.icon--clipboard:before          { content: "\e65c"; }
+.icon--clipboard-options:before  { content: "\e65d"; }
+.icon--clipboard-ticks:before    { content: "\e65e"; }
+.icon--clipboard-search:before   { content: "\e65f"; }
+.icon--clipboard-x2:before       { content: "\e660"; }
+.icon--calc:before               { content: "\e664"; }
+.icon--list:before               { content: "\e661"; }
+.icon--numbered-list:before      { content: "\e662"; }
+.icon--tick-list:before          { content: "\e663"; }
+.icon--device-mobile::before     { content: "\e904"; }
+.icon--device-tablet::before     { content: "\e905"; }
+.icon--device-desktop::before    { content: "\e906"; }
+.icon--pen::before               { content: "\e907"; }
+
+
+
+/* Context Icon Set 32x
+\*------------------------------------*/
+
+// !note These icons are generally
+// more detailed than the above
+// and should be used as size 32x +
+
+
+// Service
+.icon--season-greetings:before          { content: "\e666"; }
+.icon--christmas-sleigh:before          { content: "\e668"; }
+.icon--motability:before                { content: "\e669"; }
+.icon--mot:before                       { content: "\e66a"; }
+.icon--warranty:before                  { content: "\e66b"; }
+.icon--30years-exp:before               { content: "\e66c"; }
+.icon--35years-exp::before              { content: "\e90d"; }
+.icon--wifi:before                      { content: "\e66e"; }
+.icon--search-uk:before                 { content: "\e66f"; }
+
+
+// Website Sections
+.icon--news:before                      { content: "\e670"; }
+.icon--reviews:before                   { content: "\e90e"; }
+.icon--testimonials:before              { content: "\e671"; }
+.icon--careers:before                   { content: "\e672"; }
+
+
+
+
+/* Vehicle Icon Set  32x
+\*------------------------------------*/
+
+// !note These icons are generally
+// more detailed than the above
+// and should be used as size 32x +
+
+.icon--e-rating:before                  { content: "\e673"; }
+.icon--e-rating-blank:before            { content: "\e674"; }
+
+
+.icon--car-front:before                 { content: "\e913"; }
+.icon--van-front:before                 { content: "\e915"; }
+.icon--car:before                       { content: "\e675"; }
+.icon--cars:before                      { content: "\e676"; }
+.icon--car-side::before                 { content: "\e908"; }
+.icon--van-side::before                 { content: "\e909"; }
+.icon--tow-truck-side::before           { content: "\e90a"; }
+.icon--truck-side::before               { content: "\e90b"; }
+.icon--car-van-side::before             { content: "\e90c"; }
+.icon--road:before                      { content: "\e677"; }
+
+.icon--speedometer:before               { content: "\e678"; }
+.icon--cruise-control:before            { content: "\e679"; }
+.icon--max-speed:before                 { content: "\e67a"; }
+.icon--mileage:before                   { content: "\e67b"; }
+.icon--steering-wheel:before            { content: "\e67c"; }
+.icon--alloy-wheels:before              { content: "\e67d"; }
+.icon--breaks:before                    { content: "\e67e"; }
+.icon--isofix:before                    { content: "\e67f"; }
+.icon--lumbar-support:before            { content: "\e680"; }
+
+.icon--sports-seats:before              { content: "\e681"; }
+.icon--rear-armrest:before              { content: "\e682"; }
+.icon--cloth-seats:before               { content: "\e683"; }
+.icon--leather-seats:before             { content: "\e684"; }
+.icon--heated-seats:before              { content: "\e685"; }
+.icon--adjustable-seats:before          { content: "\e686"; }
+.icon--folding-seats:before             { content: "\e687"; }
+.icon--roof-railings:before             { content: "\e688"; }
+.icon--electric-sunroof:before          { content: "\e689"; }
+.icon--air-con:before                   { content: "\e68a"; }
+.icon--parking-sensors:before           { content: "\e68b"; }
+.icon--gearbox:before                   { content: "\e68c"; }
+.icon--gear-stick:before                { content: "\e68d"; }
+.icon--fuel-pump:before                 { content: "\e68e"; }
+.icon--fuel-gun:before                  { content: "\e68f"; }
+.icon--co2:before                       { content: "\e690"; }
+
+.icon--key:before                       { content: "\e691"; }
+.icon--keys::before                     { content: "\e90f"; }
+.icon--central-locking:before           { content: "\e692"; }
+.icon--satnav:before                    { content: "\e693"; }
+.icon--sound-system:before              { content: "\e694"; }
+.icon--door:before                      { content: "\e695"; }
+.icon--front-electric-windows:before    { content: "\e696"; }
+.icon--rear-electric-windows:before     { content: "\e697"; }
+
+.icon--engine:before                    { content: "\e698"; }
+.icon--engine-electric:before           { content: "\e694"; }
+.icon--headlight-washers:before         { content: "\e69a"; }
+.icon--front-fog-lights:before          { content: "\e69b"; }
+.icon--scar::before                     { content: "\e922"; }
+.icon--smax-speed::before               { content: "\e923"; }
+
+.icon--mobile-preparations:before       { @extend .icon--mobile; }
+
+
+
+// Repair & Care
+.icon--mechanic:before                  { content: "\e69c"; }
+.icon--parts:before                     { content: "\e69d"; }
+.icon--tyres:before                     { content: "\e69e"; }
+.icon--tyre-safety:before               { content: "\e69f"; }
+.icon--wet-distance:before              { content: "\e6a0"; }
+.icon--wheel-repairs:before             { content: "\e6a1"; }
+.icon--screw-wrench:before              { content: "\e914"; }
+.icon--mechanic-wrench:before           { content: "\e6a3"; }
+.icon--vehicle-tow:before               { content: "\e6a4"; }
+.icon--listers-garage:before            { content: "\e6a5"; }
+.icon--paint-gun:before                 { content: "\e6a6"; }
+.icon--wash-sponge:before               { content: "\e6a7"; }
+.icon--oiled:before                     { content: "\e6a8"; }
+.icon--vehicle-handover::before         { content: "\e911"; }
+.icon--accident:before                  { content: "\e918"; }
+.icon--shield-tick:before               { content: "\e91b"; }
+.icon--shield-road:before               { content: "\e91c"; }
+.icon--shield-screen:before             { content: "\e91d"; }
+
+
+/* UI Icon Set
+\*------------------------------------*/
+
+.icon--loader:before                    { content: "\e665"; }
+.icon--nav-bullet:before                { @extend .icon--bullet; }
+
+
+
+/* Brand Icons
+\*------------------------------------*/
+
+.icon--audi:before                      { content: "\e6b6"; }
+.icon--bmw:before                       { content: "\e6a9"; }
+.icon--bmw-alt:before                   { content: "\e6b8"; }
+.icon--cupra:before                     { content: "\e92b"; }
+.icon--honda:before                     { content: "\e91f"; }
+.icon--isuzu:before                     { content: "\e928"; }
+.icon--jaguar:before                    { content: "\e6aa"; }
+.icon--land_rover:before                { content: "\e6ab"; }
+.icon--lexus:before                     { content: "\e6ac"; }
+.icon--mercedes-benz:before             { content: "\e92c"; }
+.icon--mini:before                      { content: "\e6ae"; }
+.icon--porsche:before                   { content: "\e92d"; }
+.icon--seat:before                      { content: "\e6af"; }
+.icon--skoda:before                     { content: "\e6b1"; }
+.icon--smart:before                     { content: "\e6b2"; }
+.icon--toyota:before                    { content: "\e6b3"; }
+.icon--volkswagen:before                { content: "\e6b9"; }
+.icon--volkswagen_commercials:before    { content: "\e6b5"; }
+.icon--volvo:before                     { content: "\e91e"; }
+.icon--listers_u:before                 { content: "\e901"; }
+

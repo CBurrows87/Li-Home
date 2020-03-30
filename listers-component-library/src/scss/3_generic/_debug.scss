@@ -1,0 +1,51 @@
+/* ==========================================================================
+   #DEBUG
+   ========================================================================== */
+
+
+/**
+ * Description:
+ * A global file for generic debugging of styles. Set debug to true in the
+ * settings/config to enable all the functionality within this file.
+ *
+ * Note:
+ * Turn off the debugging when you go live! This is for dev ops only!!!
+ *
+ * Dependencies:
+ * settings.config
+ */
+
+
+@if (config(debug) == true){
+
+
+
+/**
+ * Set a baseline grid to allowing us to maintain our vertical rhythm, from our
+ * design.
+ * https://basehold.it/
+ *
+ * Used with our variables set in ui settings.
+ * Typically the document line-height is 24px, and baseline is 12px; but
+ * you can change this in the ui setting file.
+ */
+
+
+$value: strip-unit($global-base-line-height);
+
+html{
+  background-image: url('//basehold.it/i/#{$value}/999999');
+}
+
+
+/**
+ * Blur images when they have no alt attribute
+ */
+
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+
+// End Debug
+}

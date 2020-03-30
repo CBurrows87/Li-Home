@@ -1,0 +1,268 @@
+///* ========================================================================
+//   #UI SETTINGS
+//   ======================================================================== */
+
+///**
+// * These are global variables, and are accessible at scale across the project.
+// * If you are looking for a component specific variable, go to that components
+// * scss file to access the vars associated with that component.
+// */
+
+
+///* Standard UI Treatments
+//   ======================================================================== */
+
+$radius:          3px;
+$radius-tiny:     2px;
+$radius-small:    4px;
+$radius-medium:   5px;
+$radius-large:    6px;
+$radius-huge:     8px;
+$radius-giant:    12px;
+
+
+$transition: (1/3) + s ease-in-out;
+$transition-duration: (1/3) + s;
+$transition-timing: ease-in-out;
+
+
+
+
+
+///* Fonts
+//   ======================================================================== */
+
+$type-body:          "Web Open Sans", -apple-system, system-ui, Helvetica, Arial, sans-serif;
+$type-headings:      "Web Gotham", -apple-system, system-ui, Helvetica, Arial, sans-serif;
+$type-brand:         $type-headings;
+$type-actions:       $type-brand;
+$type-script:        "PT Serif",Georgia,serif;
+$type-mono:          Consolas,"Lucida Console",Courier,"Courier New",monospace;
+
+
+// Heading Sizes
+$headings: (
+  h1:  alpha,
+  h2:  beta,
+  h3:  gamma,
+  h4:  delta,
+  h5:  epsilon,
+  h6:  zeta
+);
+
+$heading-sizes: (
+  h1: 38px,
+  h2: 32px,
+  h3: 28px,
+  h4: 24px,
+  h5: 21px,
+  h6: 18px
+);
+
+
+$size-small: 14px;
+$size-milli: 12px;
+$size-tiny:  11px;
+$size-micro: 10px;
+
+
+// Set our own global font size:
+// 16px
+$global-font-size:   16px;
+// 24px
+$global-line-height: 24px;
+// 1.5
+$global-line-height-ratio: $global-line-height / $global-font-size;
+
+
+// Reading:
+// https://www.smashingmagazine.com/2014/09/balancing-line-length-font-size-responsive-web-design/
+
+
+
+
+
+///* Colours
+//   ======================================================================== */
+
+$color-body-bg:       #fdfdfd;
+$color-body-text:     #6b7280;
+
+// Branding
+$color-brand:          #00377b;
+$color-primary:        $color-brand;
+$color-primary-dark:   #012b5b;
+$color-primary-pale:   #4c7cb8;
+$color-secondary:      #525696;
+$color-secondary-dark: #414580;
+$color-secondary-pale: #6f73C1;
+$color-tertiary:       #395274;
+$color-tertiary-dark:  #25354a;
+$color-tertiary-pale:  #9ba3ac;
+
+$color-black:         #2d282c;
+$color-white:         #fff;
+
+// Headings
+$color-headings:      $color-tertiary-dark;
+
+
+// Feedback
+$color-positive:      #22c064;
+$color-positive-pale: #8be2af;
+$color-positive-dark: #19a654;
+
+$color-negative:      #b93332;
+$color-negative-pale: #c97b7a;
+$color-negative-dark: #a12c2b;
+
+$color-warning:       #f39534;
+$color-warning-pale:  #fac084;
+$color-warning-dark:  #d8822a;
+
+$color-info:          #256eff;
+$color-info-pale:     #6699ff;
+$color-info-dark:     #044bd5;
+
+
+// Greys
+$color-grey-darkest:  #333;
+$color-grey-darker:   #707070;
+$color-grey-dark:     #aaa;
+$color-grey:          #ccc;
+$color-grey-light:    #ddd;
+$color-grey-lighter:  #eee;
+$color-grey-lightest: #f8f8f8;
+
+// Light UI
+$color-light-lightest:#f9fafc;
+$color-light-lighter: #f3f5f8;
+$color-light-light:   #eef1f6;
+$color-light:         #e6edf3;
+$color-light-dark:    #dee7ee;
+$color-light-darker:  #c7d3dd;
+$color-light-darkest: #b3c2ce;
+
+$color-light-line:    #e2e5eb;
+
+// Dark UI
+$color-dark-lightest:#1d2a3a;
+$color-dark-lighter: #273343;
+$color-dark-light:   #202d3d;
+$color-dark:         #1b2736;
+$color-dark-dark:    #17202c;
+$color-dark-darker:  #121923;
+$color-dark-darkest: #0d1218;
+
+$color-dark-line:    #0d1218;
+
+
+//**
+// App
+//**/
+
+// Light UI
+$color-body-light-bg:   #fdfdfd;
+$color-body-light-text: #565656;
+
+// Dark UI
+$color-body-dark-bg:    #1a222e;
+$color-body-dark-text:  #e5e9ef;
+
+
+
+//**
+// Social
+//**/
+
+$color-facebook:    #3b5998;
+$color-twitter:     #4099ff;
+$color-google:      #d34836;
+$color-pinterest:   #f8aaad;
+$color-instagram:   #185887;
+$color-youtube:     #e32724;
+
+
+
+//**
+// Colour Palette
+//**/
+
+$color-yellow:      #f8d70f;
+
+
+//**
+// Usefull Links:
+//
+// https://leonardocolor.io/
+// https://leonardocolor.io/converter.html
+//*/
+
+
+
+
+
+///* Spacing
+//   ======================================================================== */
+
+// Re-alias our global spacing units
+
+$space-tiny:     $spacing-unit-tiny;    // 6px
+$space-small:    $spacing-unit-small;   // 12px
+$space:          $spacing-unit;         // 24px
+$space-large:    $spacing-unit-large;   // 48px
+$space-huge:     $spacing-unit-huge;    // 72px
+$space-giant:    $spacing-unit-giant;   // 96px
+
+
+
+
+
+///* Z-Layers
+//   ======================================================================== */
+
+// Global z-index layers, create a stacking
+// context for html elements
+
+$z-header:      9010;
+$z-modal:       9020;
+$z-overlay:     8000;
+$z-dropdown:    7000;
+$z-persistent:  6000;
+$z-priority:    3000;
+$z-increase:    2000;
+$z-decrease:    1000;
+$z-layer1:         1;
+$z-layer2:         2;
+$z-layer3:         3;
+$z-layer4:         4;
+$z-layer5:         5;
+
+
+
+///* Site Wide Component Vars
+//   ======================================================================== */
+
+
+// Site Gutter Width
+$mobile-gutter: 24px;
+$tablet-gutter:  48px;
+$desktop-gutter: 72px;
+
+
+// Maximum Width of the website + gutters. (1416px)
+// Maximum Content Width of the website. (1272px)
+$global-max-width:     1416px;
+$global-content-width: 1272px;
+
+
+// Site Header Component
+// 1. Do we need a full width site header?
+// 2. Site Header sizes.
+
+// [1]
+$full-width-site-head: false;
+
+// [2]
+$site-header-size:          50px;
+$bp2-site-header-size:      60px;

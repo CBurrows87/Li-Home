@@ -1,0 +1,23 @@
+///* ========================================================================
+//   #CALC INTERPOLATION
+//   ======================================================================== */
+
+///**
+// * Description:
+// * To be able to use calc in a format sass can understand, we need to break
+// * it down and interpolate it.
+// *
+// * Used for fluid type, to we can set max, and min values.
+// */
+
+@function calc-interpolation ($min-screen, $min-value, $max-screen, $max-value) {
+  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $a * $min-screen;
+
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  @return calc(#{$a*100}vw #{$sign} #{$b});
+}

@@ -1,0 +1,35 @@
+///* ========================================================================
+//   #FLUID SIZE
+//   ======================================================================== */
+
+///**
+// * Description:
+// * Use fluid units based on screen size, with max and min values.
+// * Enables the use of scaling fluid typography.
+// *
+// * Reading:
+// * https://css-tricks.com/snippets/css/fluid-typography/
+// *
+// * Dependencies:
+// * tools.calc-int.scss
+// */
+
+@mixin fluid-type($properties, $min-screen, $max-screen, $min-value, $max-value) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-screen) {
+      @each $property in $properties {
+        #{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value);
+      }
+    }
+
+    @media screen and (min-width: $max-screen) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}

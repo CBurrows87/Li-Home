@@ -1,0 +1,77 @@
+///* ========================================================================
+//   #PIXEL CONVERTER
+//   ======================================================================== */
+
+///**
+// * Description:
+// * Use to strip units, covert px to ems and rems, handy when creating/
+// * using fonts to determine size.
+// */
+
+
+///**
+// * Strip Units with a mixin.
+// * Usage: padding: strip-units($size: 12px) = 12
+// */
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+
+// Is Number?
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
+
+// Is relative length?
+@function is-relative-length($value) {
+  @return is-number($value) and index('em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin' 'vmax', unit($value)) != null;
+}
+
+// Is absolute length?
+@function is-absolute-length($value) {
+  @return is-number($value) and index('cm' 'mm' 'in' 'px' 'pt' 'pc', unit($value)) != null;
+}
+
+
+
+///**
+// * Convert Pixels to Ems
+// * Usage: .size{ font-size: em(12px) }
+// */
+
+@function em($px, $base-font-size: $global-font-size){
+  @if (unitless($px)){
+    $px: $px * 1px;
+  }
+  @if (unitless($base-font-size)){
+    $base-font-size: $base-font-size * 1px;
+  }
+  @if $base-font-size == 'em' {
+    // Do nothing
+  }
+  @return $px / $base-font-size * 1em;
+}
+
+
+
+///**
+// * Convert Pixels to Rems
+// * Usage: .size{ font-size: rem(12px) }
+// */
+
+@function rem($px, $base-font-size: $global-font-size){
+  @if (unitless($px)){
+    $px: $px * 1px;
+  }
+  @if (unitless($base-font-size)){
+    $base-font-size: $base-font-size * 1px;
+  }
+  @return $px / $base-font-size * 1rem;
+}

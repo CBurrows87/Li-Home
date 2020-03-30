@@ -1,0 +1,462 @@
+/* ==========================================================================
+   #BUTTON COMPONENT
+   ========================================================================== */
+
+/**
+ * Description:
+ * Generic Button styling using global styling variables and our default
+ * button variables listed below.
+ *
+ * Dependencies:
+ * settings.ui
+ *
+ */
+
+ $btn-font-weight:       500;
+ $btn-border-width:      1px;
+ $btn-border-style:      solid;
+ $btn-radius:            $radius-large;
+ $btn-transition:        $transition;
+ $btn-darken:            6%;
+ 
+ $btn-disabled-opacity:  0.6;
+ 
+ $btn-default-size:      14px;
+ $btn-default-color:     $color-brand;
+ $btn-default-bg-color:  $color-light-line;
+ 
+ $btn-default-h-size:    12px;
+ $btn-default-v-size:    10px;
+ 
+ 
+ /**
+  * Button Sizes
+  * ie: .c-btn--tiny, .c-btn--small, etc.
+  */
+ 
+ $btn-sizes: (
+ // Size         Vertical      Horizontal
+    "tiny"       2px           6px,
+    "small"      5px           6px,
+    "compact"    8px           11px,
+    "large"      12px          16px,
+    "huge"       14px          18px,
+    "wide"       10px          18px,
+ );
+ 
+ 
+ /**
+  * Button Text Sizes
+  * ie: .c-btn--alpha, .c-btn--beta, etc.
+  */
+ 
+ $btn-text-sizes: (
+   alpha:    19px,
+   beta:     17px,
+   gamma:    15px,
+   delta:    13px,
+   epsilon:  12px,
+   zeta:     10px
+ );
+ 
+ /* ========================================================================== */
+ 
+ /**
+  * Button Component:
+  *
+  * 1. Allow us to style box model properties.
+  * 2. Line different sized buttons up a little nicer.
+  * 3. Reset/normalize some styles.
+  * 4. Force all button-styled element to appear clickable.
+  * 5. Button styles.
+  * 6. Provide font size in pixels, so we don't get smaller button sizes, when
+  *    we change html font size.
+  * 7. Default Active, Hover, Focus.
+  */
+ 
+ .c-btn {
+   /* [1] */
+   display: inline-block;
+   /* [2] */
+   vertical-align: middle;
+   /* [3] */
+   text-align: center;
+   margin: 0;
+   border: none;
+ 
+   /* [5] */
+   font-family: $type-actions;
+   /* [6] */
+   font-size: $btn-default-size;
+   font-weight: $btn-font-weight;
+   white-space: normal;
+   line-height: 1.5;
+   border-radius: $btn-radius;
+   padding: $btn-default-v-size $btn-default-h-size ($btn-default-v-size - 1);
+   user-select: none;
+ 
+   /* [4] */
+   &:any-link {
+     cursor: pointer;
+   }
+ 
+   &,
+   &:any-link:hover,
+   &:any-link:active,
+   &:any-link:focus {
+     text-decoration: none;
+     outline: none;
+   }
+ }
+ 
+ 
+ /**
+  * Double qualify the btn to push up specificity in order for transitions to
+  * work due to the initial link loading transition.
+  */
+ 
+ .c-btn.c-btn {
+   transition: background-color $btn-transition, color $btn-transition, border-color $btn-transition;
+ }
+ 
+ 
+ /**
+  * Fix a firefox bug whereby 'input="submit"' gains 2px extra padding
+  */
+ 
+ .c-btn::-moz-focus-inner {
+     border:  0;
+     padding: 0;
+ }
+ 
+ 
+ /**
+  * Disabled Buttons
+  */
+ .c-btn.c-btn--disabled,
+ .c-btn[disabled] {
+   opacity: $btn-disabled-opacity;
+   cursor: not-allowed !important;
+   pointer-events: none;
+ }
+ 
+ 
+ 
+ /* Style Variants
+    ========================================================================== */
+ 
+ /**
+  * Create a mixin to dish out our styled buttons.
+  *
+  * @include btn-varient(btn-colour, btn-hover-colour, btn-background-colour,
+  * btn-border-colour)
+  *
+  * $btn-colour:       Button Text Colour
+  * $btn-hover-colour: Button Text Hover Colour
+  * $btn-background-colour: Button Background Colour.
+ 
+  * The hover background colour is set by a sass function 'darken' on the
+  * $btn-hover-colour variable, and is darkened by a % value
+  * set by $btn-dark var.
+  */
+ 
+ 
+ @mixin btn-varient($btn-colour, $btn-hover-colour, $btn-background-colour, $btn-border-colour) {
+ 
+   &,
+   &:visited {
+     color: $btn-colour;
+     background-color: $btn-background-colour;
+   }
+ 
+   &:hover,
+   &:active,
+   &.is-active,
+   &:focus {
+     color: $btn-hover-colour;
+     @if($btn-background-colour != null) {
+       background-color: darken($btn-background-colour, $btn-darken);
+     }
+   }
+ 
+   // Outline/Clear
+   &.c-btn--outline,
+   &.c-btn--clear {
+     color: $btn-background-colour;
+   }
+ 
+   // Outline Buttons
+   &.c-btn--outline {
+     @if($btn-border-width != 0 and $btn-border-colour != null) {
+       border-color: $btn-border-colour;
+       &:hover,
+       &:focus {
+         color: darken($btn-background-colour, $btn-darken);
+         border-color: darken($btn-border-colour, $btn-darken);
+       }
+     }
+   }
+ }
+ 
+ 
+ /**
+  * Button Variations:
+  * Built with above mixin.
+  * @include btn-varient(btn-colour, btn-hover-colour, btn-background-colour,
+  * btn-border-colour)
+  */
+ 
+ .c-btn {
+   @include btn-varient($btn-default-color, $btn-default-color, $btn-default-bg-color, $btn-default-bg-color);
+   &.c-btn--outline,
+   &.c-btn--clear {
+     color: $color-primary;
+     border-color: $color-light-line;
+ 
+     &:hover,
+     &:active,
+     &.is-active,
+     &:focus {
+       color: $color-primary;
+     }
+   }
+ }
+ 
+ .c-btn--primary {
+   @include btn-varient(#fff, #fff, $color-primary, $color-primary);
+ }
+ 
+ .c-btn--secondary {
+   @include btn-varient(#fff, #fff, $color-secondary, $color-secondary);
+ }
+ 
+ .c-btn--tertiary {
+   @include btn-varient(#fff, #fff, $color-tertiary, $color-tertiary);
+ }
+ 
+ .c-btn--positive {
+   @include btn-varient(#fff, #fff, $color-positive, $color-positive);
+ }
+ 
+ .c-btn--negative {
+   @include btn-varient(#fff, #fff, $color-negative, $color-negative);
+ }
+ 
+ .c-btn--info {
+   @include btn-varient(#fff, #fff, $color-info, $color-info);
+ }
+ 
+ .c-btn--warning {
+   @include btn-varient(#fff, #fff, $color-warning, $color-warning);
+ }
+ 
+ .c-btn--light {
+   @include btn-varient(#707070, #333, rgba(#fff, 1), #eee);
+   &.c-btn--outline{ color: #eee; &:hover,&:active,&:focus{ color: #fff; }}
+ }
+ 
+ 
+ 
+ 
+ 
+ /* Button Size Variants
+    ========================================================================== */
+ 
+ @each $btn-size in $btn-sizes {
+   $btn-alias:   nth($btn-size, 1);
+   $btn-v-size:  nth($btn-size, 2);
+   $btn-h-size:  nth($btn-size, 3);
+ 
+   .c-btn--#{$btn-alias} {
+     padding: #{$btn-v-size} #{$btn-h-size} #{$btn-v-size - 1};
+   }
+ }
+ 
+ 
+ 
+ 
+ 
+ /* Button Text Size Variations
+    ========================================================================== */
+ 
+ @each $size in $btn-text-sizes {
+   $btn-alias: nth($size, 1);
+   $btn-size:  nth($size, 2);
+ 
+   .c-btn--#{$btn-alias} {
+     font-size: #{$btn-size};
+   }
+ }
+ 
+ 
+ 
+ 
+ /* Outline Buttons
+    ========================================================================== */
+ 
+ /**
+  * Outlined buttons have see-through background and are bordered.
+  * Use the btn colour modifiers to style the border colour.
+  */
+ 
+ .c-btn--outline {
+   border-width: $btn-border-width;
+   border-style: $btn-border-style;
+   border-color: $btn-default-bg-color;
+   padding: ($btn-default-v-size - $btn-border-width) ($btn-default-h-size - $btn-border-width) (($btn-default-v-size - 1) - $btn-border-width);
+ 
+   &,
+   &:hover,
+   &:active,
+   &:focus {
+     background-color: transparent !important;
+   }
+ }
+ 
+ /**
+  * Change the padding to accomodate the border width.
+  */
+ 
+ @each $btn-size in $btn-sizes {
+   $btn-alias:   nth($btn-size, 1);
+   $btn-v-size:  nth($btn-size, 2);
+   $btn-h-size:  nth($btn-size, 3);
+ 
+   .c-btn--outline.c-btn--#{$btn-alias} {
+     padding: ($btn-v-size - $btn-border-width) ($btn-h-size - $btn-border-width) (($btn-v-size - 1) - $btn-border-width);
+   }
+ }
+ 
+ /**
+  * Bigger Outline
+  */
+ 
+ .c-btn--outline-large {
+   border-width: 2px;
+ }
+ 
+ 
+ 
+ /* Other Buttons Types
+    ========================================================================== */
+ 
+ .c-btn--pill {
+   border-radius: 200px;
+ }
+ 
+ .c-btn--sharp {
+   border-radius: 0;
+ }
+ 
+ .c-btn--full {
+   width: 100%;
+ }
+ 
+ .c-btn--clear {
+   &,
+   &:hover,
+   &:active,
+   &:focus {
+     background-color: transparent !important;
+     border: 0;
+   }
+ }
+ 
+ 
+ 
+ /* Loading Button
+    ========================================================================== */
+ 
+ /**
+  * Use the loading component, extend the btn component to provide feedback
+  * on elements using Ajax Loading.
+  *
+  * 1. Remove button interaction whilst loading.
+  * 2. Set any text inside the button to transparent.
+  * 3. Set width of loading element.
+  * 4. Hide any child elements inside the button, whilst loading.
+  */
+ 
+  .c-btn {
+   &.c-loading,
+   &.is-loading {
+     position: relative;
+     /* [1] */
+     pointer-events: none !important;
+     /* [2] */
+     color: transparent !important;
+ 
+     transition: background-color $btn-transition,
+                 color 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s,
+                 border-color $btn-transition;
+ 
+     /* [4] */
+     > .c-icon {
+       opacity: 0 !important;
+     }
+   }
+ 
+   .c-loader {
+     /* [2] */
+     width: 60%;
+     max-width: 32px;
+   }
+ }
+ 
+ 
+ 
+ 
+ 
+ /* Location Button
+    ========================================================================== */
+ 
+ /**
+  * When using the google location api to detect the users current location
+  * (for Post Codes, etc).
+  */
+ 
+ // .c-btn--location {
+ 
+ // }
+ 
+ /**
+  * When used with the input group component.
+  */
+
+
+
+ .c-input-group {
+   .c-btn--location {
+     &,
+     &:active,
+     &:focus {
+       position: absolute;
+       right: 100%;
+       z-index: 1;
+       border: none;
+       background: transparent;
+       padding: 9px 12px;
+       color: $color-info-pale;
+     }
+ 
+     &:hover {
+       color: $color-info;
+     }
+ 
+     &--disabled,
+     &[disabled] {
+       color: $color-grey;
+     }
+ 
+     &--failed {
+       color: $color-negative;
+     }
+ 
+     &--success {
+       color: $color-positive;
+     }
+   }
+
+  
+ }
+ 

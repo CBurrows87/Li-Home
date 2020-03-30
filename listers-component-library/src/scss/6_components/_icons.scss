@@ -1,0 +1,115 @@
+/* ==========================================================================
+   #ICONS
+   ========================================================================== */
+
+/**
+ * Since v7.5, Icons have moved from icon fonts to svg.
+ * We use Gulp svgStore as a delivery process for our svg files.
+ * This concatenates all the files within our 'icon src' directory into
+ * a single svg sprite.
+ *
+ * We then use the <use> tag technique to display our icons from the DOM.
+ *
+ * Reading:
+ * https://css-tricks.com/icon-fonts-vs-svg/
+ * https://css-tricks.com/svg-sprites-use-better-icon-fonts/
+ * https://snook.ca/archives/html_and_css/icons-and-type
+ * https://css-tricks.com/pretty-good-svg-icon-system/
+ * https://gist.github.com/davidhund/564331193e1085208d7e
+ */
+
+
+/**
+ * Vars: */
+ $icon-sizes: (
+  "small"      "10px",
+  "default"    "16px",
+  "medium"     "24px",
+  "large"      "32px",
+  "huge"       "48px",
+  "natural"    "1em"
+ );
+
+
+/* ========================================================================== */
+
+
+ /**
+  * Quick Usage:
+  *
+  * <svg class="c-icon c-icon--default">
+  *     <use xlink:href="#icon" />
+  * </svg>
+  */
+  
+
+
+.c-icon {
+  display: inline-block;
+  width:  16px;
+  height: 16px;
+  min-height: 16px;
+  min-width:  16px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+
+  vertical-align: middle;
+  align-self: center;
+}
+
+
+
+/* Icon Sizes
+   ========================================================================== */
+
+@each $size in $icon-sizes {
+  $icon-alias: nth($size, 1);
+  $icon-value: nth($size, 2);
+
+  .c-icon--#{$icon-alias} {
+    width: #{$icon-value};
+    height: #{$icon-value};
+  }
+}
+
+
+
+
+
+/* Icon + Text
+   ========================================================================== */
+
+/**
+ * Icons alongside text can sometimes need a nudge to align the icon
+ * verticaly center.
+ */
+
+.c-icon-text {
+  position: relative;
+  top: -1px;
+}
+
+.c-icon-text-large {
+  position: relative;
+  top: -2px;
+}
+
+.c-icon-text-huge {
+  position: relative;
+  top: -3px;
+}
+
+/* Button Icon 
+   ========================================================================== */
+
+/**
+ * Boolean that adds a icon to the button element. 
+ */
+
+.--hasIcon {
+  float: right;
+  padding-top: 4px;
+  padding-left: 10px;
+  padding-right: 16px;
+}

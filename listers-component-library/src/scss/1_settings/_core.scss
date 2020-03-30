@@ -1,0 +1,98 @@
+///* ========================================================================
+//   #CORE
+//   ======================================================================== */
+
+///**
+// * This core file sets up inuitcss’ most important setup variables. They
+// * underpin a lot of how the framework functions and should be modified and
+// * preconfigured with caution.
+// */
+
+///**
+// * Baseline grid lines height.
+// * Every spacing metric should be based on this.
+// */
+
+$global-baseline:     6px;
+
+///**
+// * How many grid lines should our spacing unit variants span?
+// * Each value should be an unitless integer.
+// */
+
+$spacing-unit-factor-tiny:    1;   // 6px
+$spacing-unit-factor-small:   2;   // 12px
+$spacing-unit-factor:         4;   // 24px
+$spacing-unit-factor-large:   8;   // 48px
+$spacing-unit-factor-huge:   12;   // 72px
+$spacing-unit-factor-giant:  16;   // 96px
+
+
+///**
+// * Spacing values are determined based on your project’s global baseline grid.
+// * It is not recommended that you modify these following variables
+// * (it can break your vertical rhythm), but if you need to, you can.
+// */
+
+$spacing-unit:       $global-baseline * $spacing-unit-factor      ;
+$spacing-unit-tiny:  $global-baseline * $spacing-unit-factor-tiny ;
+$spacing-unit-small: $global-baseline * $spacing-unit-factor-small;
+$spacing-unit-large: $global-baseline * $spacing-unit-factor-large;
+$spacing-unit-huge:  $global-baseline * $spacing-unit-factor-huge ;
+$spacing-unit-giant: $global-baseline * $spacing-unit-factor-giant;
+
+///**
+// * Base typographical styles.
+// * https://www.smashingmagazine.com/2014/09/balancing-line-length-font-size-responsive-web-design/
+// */
+
+$global-font-size:    16px;
+$global-line-height:  $spacing-unit;
+$global-line-height-ratio: $global-line-height / $global-font-size;
+
+
+
+
+///**
+// * Check that the chosen font rules are pixel numbers.
+// */
+
+@each $_font-globals in
+      $global-font-size
+      $global-line-height {
+
+  @if (type-of($_font-globals) == number) {
+
+    @if (unit($_font-globals) != "px") {
+      @error "`#{$_font-globals}` needs to be a pixel value.";
+    }
+
+  } @else {
+    @error "`#{$_font-globals}` needs to be a number.";
+  }
+
+}
+
+
+///**
+// * Check that the chosen size factors are unitless, integer numbers.
+// */
+
+@each $_spacing-unit in
+      $spacing-unit-factor-tiny
+      $spacing-unit-factor-small
+      $spacing-unit-factor-large
+      $spacing-unit-factor-huge {
+
+  @if (type-of($_spacing-unit) == number) {
+    @if (unitless($_spacing-unit) == false) {
+      @error "`#{$_spacing-unit}` needs to be unitless.";
+    }
+    @if ($_spacing-unit != ceil($_spacing-unit)) {
+      @error "`#{$_spacing-unit}` needs to be an integer.";
+    }
+  } @else {
+    @error "`#{$_spacing-unit}` needs to be a number.";
+  }
+
+}

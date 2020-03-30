@@ -1,0 +1,94 @@
+///* ========================================================================
+//   #RESPONSIVE
+//   ======================================================================== */
+
+///* Hold our breakpoint aliases and conditions in a list.
+// *
+// * These can be invoked later using include-media 
+// * (our media query build tool).
+// */
+
+
+///**
+// * Set the number of breakpoints
+// */
+$breakpoints: (
+  'bp1':  376px,
+  'bp2':  582px,
+  'bp3':  768px,
+  'bp4':  1025px,
+  'bp5':  1256px,
+  'bp6':  1480px
+);
+
+
+
+///**
+// * Retrieve a breakpoint from the scss map by either using one of the
+// * following methods:
+// *
+// * e.g. @media screen and ( max-device-width: map-get($breakpoints, bp1) )
+// * ~ which compiles to: ~
+// * @media screen and ( max-device-width: 376px )
+// *
+// * Or use the provided function below:
+// *
+// * e.g. @media screen and ( max-device-width: bp(bp1), )
+// * ~ which compiles to: ~
+// * @media screen and ( max-device-width: 376px )
+// *
+// *//
+
+@function bp($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+
+
+///**
+// * Additional Information:
+// * // * https://www.mydevice.io/ for current screen size resolutions.
+// */
+
+
+///**
+// * Set the delimiter for breakpoints
+// * -from-:       Greater than.
+// * -from-next-:  Greater than or equal to. (Breakpoint up)
+// * -upto-:       Less than. (Breakpoint down)
+// * -upto-next-:  Less than or equal to.
+// * only:         Equal to current ~ less than next bp. (Current Breakpoint)
+// */
+
+$bp-from: '-from-';
+$bp-upto: '-upto-';
+$bp-only: '-only-';
+
+
+
+///**
+// * Get the number of breakpoints
+// */
+$bp-num:  length($breakpoints);
+
+
+
+///**
+// * Set some media expressions
+// */
+$media-expressions: (
+  'screen':     ('screen'),
+  'print':      ('print'),
+  'landscape':  ('(orientation: landscape)'),
+  'portrait':   ('(orientation: portrait)'),
+  'retina2x':   ('(-webkit-min-device-pixel-ratio: 2)', '(min-resolution: 192dpi)'),
+  'retina3x':   ('(-webkit-min-device-pixel-ratio: 3)', '(min-resolution: 350dpi)'),
+  'hover':      ('(any-hover: hover)'),
+  'pointer':    ('(any-pointer: fine)')
+);
+
+
+///**
+// * Tell the framework we are repsonsive!
+// */
+$config: map-merge($config,(responsive: true));
